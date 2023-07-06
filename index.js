@@ -42,4 +42,32 @@ app.post("/newCollection", async function (request, response) {
   response.send(result);
 });
 
+//listed company API
+
+app.get("/collection", async function (request, response) {
+  const product = await client
+    .db("products")
+    .collection("basic")
+    .find({})
+    .toArray();
+  response.send(product);
+});
+app.get("/collection", async function (request, response) {
+  const product = await client
+    .db("products")
+    .collection("graph")
+    .find({})
+    .toArray();
+  response.send(product);
+});
+app.get("/collection", async function (request, response) {
+  const product = await client
+    .db("products")
+    .collection("piechart")
+    .find({})
+    .toArray();
+  response.send(product);
+});
+
+
 app.listen(PORT, () => console.log(`APP is running ${PORT}`));
