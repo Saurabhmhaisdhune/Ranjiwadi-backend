@@ -44,7 +44,7 @@ app.post("/newCollection", async function (request, response) {
 
 //listed company API
 
-app.get("/collection", async function (request, response) {
+app.get("/basic", async function (request, response) {
   const product = await client
     .db("products")
     .collection("basic")
@@ -52,7 +52,7 @@ app.get("/collection", async function (request, response) {
     .toArray();
   response.send(product);
 });
-app.get("/collection", async function (request, response) {
+app.get("/graph", async function (request, response) {
   const product = await client
     .db("products")
     .collection("graph")
@@ -60,7 +60,7 @@ app.get("/collection", async function (request, response) {
     .toArray();
   response.send(product);
 });
-app.get("/collection", async function (request, response) {
+app.get("/piechart", async function (request, response) {
   const product = await client
     .db("products")
     .collection("piechart")
