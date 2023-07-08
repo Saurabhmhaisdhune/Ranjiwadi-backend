@@ -69,5 +69,23 @@ app.get("/piechart", async function (request, response) {
   response.send(product);
 });
 
+//post..................
+
+app.post("/basic/data", async function (request, response) {
+  const data = request.body;
+  const result = await client.db("products").collection("basic").insertOne(data);
+  response.send(result);
+});
+app.post("/graph/data", async function (request, response) {
+  const data = request.body;
+  const result = await client.db("products").collection("graph").insertOne(data);
+  response.send(result);
+});
+app.post("/piechart/data", async function (request, response) {
+  const data = request.body;
+  const result = await client.db("products")
+  .collection("piechart").insertOne(data);
+  response.send(result);
+});
 
 app.listen(PORT, () => console.log(`APP is running ${PORT}`));
